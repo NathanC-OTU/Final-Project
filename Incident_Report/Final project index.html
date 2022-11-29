@@ -1,0 +1,37 @@
+<%- include ./partials/header.ejs %>
+<%- include ./partials/main_nav.ejs %>
+<!-- Main Content -->
+<main>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-8">
+            <h1><%= title %></h1>
+            <br>
+    <table class=" "table table-bordered table-striped table-hover">
+    <tr class="d-flex">
+        <th class="text-center col-1">Name</th>
+        <th class="text-center col-1">Company</th>
+        <th class="text-center col-2">Date_of_Incident</th>
+        <th class="text-center col-3">Date_of_Submission</th>
+        <th class="text-center col-2">Date_of_Incident</th>
+        <th class="text-center col-3">Severity</th>
+    </tr>
+    <!-- Repeat the template --> 
+    <% for (let count=0; count< Carlist.length; count++) { %>
+        <tr class="d-flex">
+            <td class="text-center col-1"><%= Reportslist[count].Name %></td>
+            <td class="text-center col-1"><%= Reportslist[count].Company %></td>
+            <td class="text-center col-2"><%= Reportslist[count].Date_of_Incident %></td>
+            <td class="text-center col-3"><%= Reportslist[count].Date_of_Submission %></td>
+            <td class="text-center col-2"><%= Reportslist[count].Date_of_Incident %></td>
+            <td class="text-center col-1"><%= Reportslist[count].Serverity %></td>
+        </tr>       
+    
+    <% } %>
+    </table>
+    </div>
+</div>
+</div>
+</main>
+<%- include ./partials/bottom_nav.ejs %>
+<%- include ./partials/footer.ejs %>
