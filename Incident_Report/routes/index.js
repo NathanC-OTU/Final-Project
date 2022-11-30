@@ -89,7 +89,6 @@ router.post('/add', (req, res, next)=>{
 //Edit Get
 router.get('/edit/:id',(req,res,next)=> {
   let id = req.params.id;
-  console.log(id)
   Incidents.findById(id,(err,Incidents) =>{
       if(err)
       {
@@ -99,6 +98,8 @@ router.get('/edit/:id',(req,res,next)=> {
       }
       else
       {
+        console.log(id)
+        console.log(Incidents)
           res.render('/edit', {title:'Edit Incident', Incidents:Incidents});
       }
   })
@@ -108,7 +109,7 @@ router.get('/edit/:id',(req,res,next)=> {
 //Edit Post
 
 router.post('/edit/:id', (req, res, next)=>{
-  let id =req.edit.id;
+  let id =req.params.id;
   let IncidentsToEdit = Incidents({
       "_id":id,
 
