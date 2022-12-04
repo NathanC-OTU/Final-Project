@@ -100,7 +100,7 @@ router.get('/edit/:id',(req,res,next)=> {
       {
         console.log(id)
         console.log(Incidents)
-          res.render('/edit', {title:'Edit Incident', Incidents:Incidents});
+          res.render('./edit', {title:'Edit Incident', Incidents:Incidents});
       }
   })
 });
@@ -112,6 +112,13 @@ router.post('/edit/:id', (req, res, next)=>{
   let id =req.params.id;
   let IncidentsToEdit = Incidents({
       "_id":id,
+      "Username":req.body.Username,
+      "Company":req.body.Company,
+      "Incident_Date":req.body.Incident_Date,
+      "Report_Date":req.body.Report_Date,
+      "Incident_Type":req.body.Incident_Type,
+      "Severity":req.body.Severity,
+      "Cost":req.body.Cost,
 
   });
   Incidents.updateOne({_id:id}, IncidentsToEdit,(err)=>{
