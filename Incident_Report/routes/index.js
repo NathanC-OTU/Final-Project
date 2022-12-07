@@ -98,8 +98,6 @@ router.get('/edit/:id',(req,res,next)=> {
       }
       else
       {
-        console.log(id)
-        console.log(Incidents)
           res.render('./edit', {title:'Edit Incident', Incidents:Incidents});
       }
   })
