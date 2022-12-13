@@ -1,0 +1,42 @@
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/main_nav.ejs') %>
+
+    <main>
+            <table class="table table-bordered table-striped table-hover" style = "width:100%">
+            <tr class="d-flex" style="width:75%">
+                <th class="text-center col-1">Name</th>
+                <th class="text-center col-1">Company</th>
+                <th class="text-center col-2">Date of Incident</th>
+                <th class="text-center col-2">Date of Submission</th>
+                <th class="text-center col-1">Incident Type</th>
+                <th class="text-center col-1">Severity</th>
+                <th class="text-center col-1">Cost</th>
+                <th class="text-center col-4">Extra_Notes</th>
+                <th class="text-center col-1">Delete</th>
+                <th class="text-center col-1">Edit</th>
+
+            </tr>
+            <!-- Repeat the template --> 
+            <% for (let count=0; count<Incidents.length; count++) { %>
+                <tr class="d-flex" style="width:75%">
+                    <td style ="word-break:break-all;" class="text-center col-1"><%= Incidents[count].Username %></td>
+                    <td style ="word-break:break-all;" class="text-center col-1"><%= Incidents[count].Company %></td>
+                    <td style ="word-break:break-all;" class="text-center col-2"><%= Incidents[count].Incident_Date %></td>
+                    <td style ="word-break:break-all;" class="text-center col-2"><%= Incidents[count].Report_Date %></td>
+                    <td style ="word-break:break-all;" class="text-center col-1"><%= Incidents[count].Incident_Type %></td>
+                    <td style ="word-break:break-all;" class="text-center col-1"><%= Incidents[count].Severity %></td>
+                    <td style ="word-break:break-all;" class="text-center col-1"><%= Incidents[count].Cost %></td>
+                    <td style ="word-break:break-all;" class="text-center col-4"><%= Incidents[count].Extra_Notes %></td>
+                    <td style ="word-break:break-all;" class="text-center col-1"><a href="delete/<%= Incidents[count]._id %>"> <button type="button">Delete</button></a></td>
+                    <td style ="word-break:break-all;" class="text-center col-1"><a href="edit/<%= Incidents[count]._id %>"> <button type="button">Edit</button></a></td>
+                    
+                </tr>       
+            
+            <% } %>
+            </table>
+            </div>
+        </div>
+    </div>
+    </main>
+
+<%- include ('partials/footer.ejs') %>

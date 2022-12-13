@@ -1,0 +1,20 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+
+table { 
+  table-layout:fixed;
+}
+
+tr { 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  word-wrap: break-word;
+}
+
+.main_table {
+  text-align: center;
+}
+
