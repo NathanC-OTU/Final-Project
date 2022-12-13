@@ -4,10 +4,45 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+let session = require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+let localStategy = passportLocal.strategy;
+let flash = require('connect-flash');
+
+var app = express();
+
+//model for User collection
+let UserModel = require('./models/user');
+let User = UserModel.User;
+
+//setup express session 
+app.use(session({
+	secret:"SomeSecret",
+	saveUninitialized: true,
+	resave:false
+
+}));
+//implement a User auth
+passport.use(User.createStrategy());
+
+
+
+//inialize the flash
+app.use(flash());
+//initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+//serial and deserialize the User info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 var indexRouter = require('./routes/index');
 
 
-var app = express();
 
 
 // config mongoDB
@@ -37,6 +72,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
+
+
+
+
 
 app.use('/', indexRouter);
 
