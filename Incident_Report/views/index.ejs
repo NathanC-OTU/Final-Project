@@ -1,59 +1,60 @@
 <%- include ('partials/header.ejs') %>
 <%- include ('partials/main_nav.ejs') %>
-<div class="row">
-        <div class="col-md-offset-3 col-md-14">
-            <h1>Incident Reporter</h1>
-              <a href="add">
-            <button type="button" class="btn btn-outline-success">Add Incident</button>
-            </a>
-            <a href="login">
-                <button type="button" class="btn btn-outline-success">Login</button>
-            </a>   
-            <a href="logout">
-                <button type="button" class="btn btn-outline-success">logout</button>
-            </a>   
+        <div class="row">
+                <div class="col-md-offset-3 col-md-14">
+                    <h1>Incident Reporter</h1>
+                      <a href="add">
+                    <button type="button" class="btn btn-outline-success">Add Incident</button>
+                    </a>
+                    <a href="login">
+                        <button type="button" class="btn btn-outline-success">Login</button>
+                    </a>   
+                    <a href="logout">
+                        <button type="button" class="btn btn-outline-success">logout</button>
+                    </a>   
 
-        <br>
+                <br>
 
-<main>
-  <div class="container">
-    <div class="row">
-        <div class="col-md-offset-3 col-md-14">
-            <h1>Incident Reporter</h1>
-            <br>
-    <table class="table table-bordered table-striped table-hover">
-    <tr class="d-flex">
-        <th class="text-center col-1">Name</th>
-        <th class="text-center col-1">Company</th>
-        <th class="text-center col-2">Date_of_Incident</th>
-        <th class="text-center col-3">Date_of_Submission</th>
-        <th class="text-center col-2">Date_of_Incident</th>
-        <th class="text-center col-3">Severity</th>
-        <th class="text-center col-1">Cost</th>
-        <th class="text-center col-4">Extra_Notes</th>
-        <th class="text-center col-1">Delete</th>
-        <th class="text-center col-1">Edit</th>
+        <main>
+          <div class="container">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-14">
+                    <h1>Incident Reporter</h1>
+                    <br>
+            <table class="table table-bordered table-striped table-hover">
+            <tr class="d-flex">
+                <th class="text-center col-1">Name</th>
+                <th class="text-center col-1">Company</th>
+                <th class="text-center col-2">Date_of_Incident</th>
+                <th class="text-center col-3">Date_of_Submission</th>
+                <th class="text-center col-2">Date_of_Incident</th>
+                <th class="text-center col-3">Severity</th>
+                <th class="text-center col-1">Cost</th>
+                <th class="text-center col-4">Extra_Notes</th>
+                <th class="text-center col-1">Delete</th>
+                <th class="text-center col-1">Edit</th>
 
-    </tr>
-    <!-- Repeat the template --> 
-    <% for (let count=0; count<Incidents.length; count++) { %>
-        <tr class="d-flex">
-            <td class="text-center col-1"><%= Incidents[count].Username %></td>
-            <td class="text-center col-1"><%= Incidents[count].Company %></td>
-            <td class="text-center col-2"><%= Incidents[count].Incident_Date %></td>
-            <td class="text-center col-3"><%= Incidents[count].Report_Date %></td>
-            <td class="text-center col-2"><%= Incidents[count].Incident_Type %></td>
-            <td class="text-center col-3"><%= Incidents[count].Serverity %></td>
-            <td class="text-center col-1"><%= Incidents[count].Cost %></td>
-            <td class="text-center col-4"><%= Incidents[count].Extra_Notes %></td>
-            <td class="text-center col-1"><a href="delete/<%= Incidents[count]._id %>"> <button type="button">Delete</button></a></td>
-            <td class="text-center col-1"><a href="edit/<%= Incidents[count]._id %>"> <button type="button">Edit</button></a></td>
-            
-        </tr>       
-    
-    <% } %>
-    </table>
-    </div>
-</div>
-</div>
-</main>
+            </tr>
+            <!-- Repeat the template --> 
+            <% for (let count=0; count<Incidents.length; count++) { %>
+                <tr class="d-flex">
+                    <td class="text-center col-1"><%= Incidents[count].Username %></td>
+                    <td class="text-center col-1"><%= Incidents[count].Company %></td>
+                    <td class="text-center col-2"><%= Incidents[count].Incident_Date %></td>
+                    <td class="text-center col-3"><%= Incidents[count].Report_Date %></td>
+                    <td class="text-center col-2"><%= Incidents[count].Incident_Type %></td>
+                    <td class="text-center col-3"><%= Incidents[count].Serverity %></td>
+                    <td class="text-center col-1"><%= Incidents[count].Cost %></td>
+                    <td class="text-center col-4"><%= Incidents[count].Extra_Notes %></td>
+                    <td class="text-center col-1"><a href="delete/<%= Incidents[count]._id %>"> <button type="button">Delete</button></a></td>
+                    <td class="text-center col-1"><a href="edit/<%= Incidents[count]._id %>"> <button type="button">Edit</button></a></td>
+
+                </tr>       
+
+            <% } %>
+            </table>
+            </div>
+        </div>
+        </div>
+        </main>
+<%- include ('partials/footer.ejs') %>
