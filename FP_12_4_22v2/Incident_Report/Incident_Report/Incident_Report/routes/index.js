@@ -23,11 +23,6 @@ function requireAuth(req, res, next)
 }
 
 
-/* GET home page. */
-router.get('/home', function(req, res, next) {
- res.render('home');
-});
-
 router.get('/about', function(req, res, next) {
     res.render('about');
    });
@@ -46,10 +41,10 @@ router.get('/', (req, res, next)=>{
       }
       else
       {
-        console.log(req.username)
+        
         res.render('index', 
            {Incidents: Incidents,
-           username: req.username ? req.username.username:''}
+           displayName: !req.user ? '':req.user.username}
         ); //Rendering the main page and passing the Incident model while passing
       }
     
@@ -127,7 +122,9 @@ router.get('/edit/:id', requireAuth,(req,res,next)=> {
       }
       else
       {
-          res.render('./edit', {title:'Edit Incident', Incidents:Incidents});
+          console.log(req.user.username)
+          res.render('./edit', {title:'Edit Incident', Incidents:Incidents}, req.user ? req.user.displayName:'');
+          
       }
   })
 });
@@ -227,13 +224,12 @@ router.get('/registration', (req, res, next) => {
 
 });
 
-
-
 //post registration page
 router.post('/registration', (req, res, next) => {
     let newUser = User({
         username: req.body.username,
         password: req.body.password,
+        displayName: req.body.displayName
     });
     User.register(newUser, req.body.password, (err) => {
         if(err)

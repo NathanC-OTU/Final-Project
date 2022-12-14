@@ -21,6 +21,15 @@ let User = mongoose.Schema({
 		required: "Password is required"
 
 	},
+	displayName:
+
+	{
+		type:String,
+		default:"",
+		trim:true,
+		required: "Display name is required"
+
+	},
 
 	created:{
 	

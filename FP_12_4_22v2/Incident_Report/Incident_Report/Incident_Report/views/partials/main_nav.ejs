@@ -1,13 +1,4 @@
-    <!-- Just an image 
-<nav class="navbar navbar-light bg-light">
-
-  <nav class="navbar-main">
-        <li class="navbarbutton"><a href="/home">HOME</a></li>
-        <li class="navbarbutton"><a href="/about">ABOUT</a></li>
-        <li class="navbarbutton"><a href="/reports">REPORTS</a></li>
-        <li class="navbarbutton-logout"><a href="/logout">LOGOUT</a></li>
-    </nav>
-</nav>-->
+  
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -23,11 +14,11 @@
      <li class="nav-item">
         <a class="nav-link" href="/about">About Us</a>
       </li>
-    <% if(typeof username=='string' && username) {%>
-     <li class="nav-item">
-        user: <%= username %>
- 	   <a class="nav-link" href="/logout">Logout</a>
+    <% if(typeof displayName =='string' && displayName) {%>
+     <li class="nav-item"> 
+ 	    <a class="nav-link" href="/logout">Logout</a>
 	  </li>
+     <li class="navbar-text">User: <%= displayName %> </li>
     <% } else {%>
      <li class="nav-item">
  	   <a class="nav-link" href="/login">Login</a>

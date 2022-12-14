@@ -1,9 +1,19 @@
 <%- include ('partials/header.ejs') %>
-<%- include ('partials/main_nav.ejs') %>
+<%- include ('partials/main_nav.ejs') %> 
+    <!--Introductory video -->
+
+<div class="content">
+  <h1>CWIRe</h1>
+  <p>Canada's Official Non-Offical Workplace Incident Reporter</p>
+</div>
+<video autoplay muted loop id="myVideo" style="width:100%">
+  <source src="./videos/Back.mp4" type="video/mp4">
+</video>
+
 
     <main>
-            <table class="table table-bordered table-striped table-hover" style = "width:100%">
-            <tr class="d-flex" style="width:75%">
+            <table class="table table-bordered table-striped table-condensed table-hover" >
+            <tr class="d-flex" >
                 <th class="text-center col-1">Name</th>
                 <th class="text-center col-1">Company</th>
                 <th class="text-center col-2">Date of Incident</th>
@@ -11,14 +21,14 @@
                 <th class="text-center col-1">Incident Type</th>
                 <th class="text-center col-1">Severity</th>
                 <th class="text-center col-1">Cost</th>
-                <th class="text-center col-4">Extra_Notes</th>
-                <th class="text-center col-1">Delete</th>
-                <th class="text-center col-1">Edit</th>
+                <th class="text-center col-2">Extra_Notes</th>
+                <th class="text-center col-1">Delete and Edit</th>
+                
 
             </tr>
             <!-- Repeat the template --> 
             <% for (let count=0; count<Incidents.length; count++) { %>
-                <tr class="d-flex" style="width:75%">
+                <tr class="d-flex" >
                     <td style ="word-break:break-all;" class="text-center col-1"><%= Incidents[count].Username %></td>
                     <td style ="word-break:break-all;" class="text-center col-1"><%= Incidents[count].Company %></td>
                     <td style ="word-break:break-all;" class="text-center col-2"><%= Incidents[count].Incident_Date %></td>
@@ -26,9 +36,10 @@
                     <td style ="word-break:break-all;" class="text-center col-1"><%= Incidents[count].Incident_Type %></td>
                     <td style ="word-break:break-all;" class="text-center col-1"><%= Incidents[count].Severity %></td>
                     <td style ="word-break:break-all;" class="text-center col-1"><%= Incidents[count].Cost %></td>
-                    <td style ="word-break:break-all;" class="text-center col-4"><%= Incidents[count].Extra_Notes %></td>
-                    <td style ="word-break:break-all;" class="text-center col-1"><a href="delete/<%= Incidents[count]._id %>"> <button type="button">Delete</button></a></td>
-                    <td style ="word-break:break-all;" class="text-center col-1"><a href="edit/<%= Incidents[count]._id %>"> <button type="button">Edit</button></a></td>
+                    <td style ="word-break:break-all;" class="text-center col-2"><%= Incidents[count].Extra_Notes %></td>
+                    <td style ="word-break:break-all;" class="text-center col-1"><a href="delete/<%= Incidents[count]._id %>"> <button type="button">Delete</button></a>
+                    <a href="edit/<%= Incidents[count]._id %>"> <button type="button">Edit</button></a></td>
+                    
                     
                 </tr>       
             

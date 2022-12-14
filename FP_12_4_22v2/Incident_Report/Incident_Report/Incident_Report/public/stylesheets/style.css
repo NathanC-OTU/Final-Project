@@ -1,20 +1,31 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
+.table { 
 
-table { 
-  table-layout:fixed;
+  margin: auto;
+  width: 70%
+ 
 }
 
 tr { 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
-  word-wrap: break-word;
+  line-height: 30px;
 }
 
-.main_table {
-  text-align: center;
-}
 
+#myVideo {
+    margin: auto;
+    size: 25%;
+  }
+  
+  .content {
+    text-align: center ;
+    object-position: top;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
+
+.container_text {
+  padding: 100px;
+}

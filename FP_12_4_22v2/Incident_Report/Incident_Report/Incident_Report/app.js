@@ -9,6 +9,7 @@ let passport = require('passport');
 let passportLocal = require('passport-local');
 let localStategy = passportLocal.strategy;
 let flash = require('connect-flash');
+let passportLocalMongoose = require('passport-local-mongoose');
 
 var app = express();
 
@@ -27,7 +28,9 @@ app.use(session({
 passport.use(User.createStrategy());
 
 
-
+//serial and deserialize the User info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 //inialize the flash
 app.use(flash());
 //initialize passport
@@ -35,9 +38,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-//serial and deserialize the User info
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 
 var indexRouter = require('./routes/index');
